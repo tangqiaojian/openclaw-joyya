@@ -2,15 +2,7 @@ package com.joyya.dto;
 
 import java.time.LocalDateTime;
 
-/**
- * 用户数据传输对象（DTO）
- * 
- * @author Joyya
- * @version 1.0.0
- * @since 2026-03-03
- */
 public class UserDTO {
-
     private Long id;
     private String username;
     private String email;
