@@ -16,6 +16,26 @@
 - 安全测试指南
 - 性能测试指南
 - GitHub 推送说明（PUSH_INSTRUCTIONS.md）
+- Bilibili 开发方案（doc/bilibili-dev-plan.md，8.0KB）
+- Bilibili 数据库结构说明（doc/bilibili-sql-schema.md，10.6KB）
+- Bilibili SQL 脚本（schema_bilibili.sql，10.3KB）
+- Video 实体类
+- Category 实体类
+- Tag 实体类
+- Comment 实体类
+- VideoLike 实体类
+- Collection 实体类
+- VideoService 服务层
+- CategoryService 服务层
+- TagService 服务层
+- CommentService 服务层
+- InteractionService 服务层
+- VideoRepository 仓库层
+- CategoryRepository 仓库层
+- TagRepository 仓库层
+- CommentRepository 仓库层
+- VideoLikeRepository 仓库层
+- CollectionRepository 仓库层
 
 ### 修改
 
