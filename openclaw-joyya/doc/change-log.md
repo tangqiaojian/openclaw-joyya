@@ -36,6 +36,16 @@
 - CommentRepository 仓库层
 - VideoLikeRepository 仓库层
 - CollectionRepository 仓库层
+- VideoController（14 个 API 端点）
+- CategoryController（8 个 API 端点）
+- TagController（11 个 API 端点）
+- CommentController（9 个 API 端点）
+- InteractionController（10 个 API 端点）
+- VideoDTO
+- CategoryDTO
+- TagDTO
+- CommentDTO
+- UserDTO
 
 ### 修改
 
