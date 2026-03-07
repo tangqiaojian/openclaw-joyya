@@ -4,11 +4,11 @@
       <h1 class="section-title"><span class="emoji">🔥</span> 热门视频</h1>
     </div>
     <div class="video-grid">
-      <VideoCard v-for="video in videos" :key="video.id" :video="video" @click="goToVideo(video.id)" /u003e
+      <VideoCard v-for="video in videos" :key="video.id" :video="video" @click="goToVideo(video.id)" />
     </div>
     <div v-if="loading" class="loading">加载中...</div>
-    <div v-if="error" class="error"@click="loadVideos">{{ error }} - 点击重试</div>
-  <div>
+    <div v-if="error" class="error" @click="loadVideos">{{ error }} - 点击重试</div>
+  </div>
 </template>
 
 <script setup>

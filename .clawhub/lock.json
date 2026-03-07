@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "skills": {
+    "weather": {
+      "version": "1.0.0",
+      "installedAt": 1772454731253
+    },
+    "xiaohongshu-publish": {
+      "version": "1.0.0",
+      "installedAt": 1772458270193
+    },
+    "openclaw-github-assistant": {
+      "version": "2.0.1",
+      "installedAt": 1772530141062
+    }
+  }
+}

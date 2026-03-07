@@ -118,8 +118,8 @@ public class VideoService {
     @Transactional
     public Video saveVideo(Video video) {
         // 验证分类是否存在
-        if (video.getCategoryId() != null) {
-            Optional<Category> categoryOpt = categoryRepository.findById(video.getCategoryId());
+        if (video.getCategory() != null) {
+            Optional<Category> categoryOpt = categoryRepository.findById(video.getCategory().getId());
             if (!categoryOpt.isPresent()) {
                 throw new IllegalArgumentException("分类不存在");
             }
@@ -145,7 +145,9 @@ public class VideoService {
         existingVideo.setCover(video.getCover());
         existingVideo.setVideoUrl(video.getVideoUrl());
         existingVideo.setDuration(video.getDuration());
-        existingVideo.setCategoryId(video.getCategoryId());
+        if (video.getCategory() != null) {
+            existingVideo.setCategory(video.getCategory());
+        }
         existingVideo.setStatus(video.getStatus());
         existingVideo.setIsRecommend(video.getIsRecommend());
         existingVideo.setIsHot(video.getIsHot());

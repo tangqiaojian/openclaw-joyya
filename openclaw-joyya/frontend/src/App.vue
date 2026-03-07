@@ -8,16 +8,16 @@
         <RouterLink to="/videos/upload" class="nav-link">上传</RouterLink>
         <RouterLink to="/videos/my" class="nav-link">我的</RouterLink>
       </nav>
-    <header>
+    </header>
     
     <main class="main-container">
-      <RouterView /u003e
-    <main>
+      <RouterView />
+    </main>
     
     <footer>
       <p>© 2026 Joyya Video - B 站仿站项目</p>
-    <footer>
-  <div>
+    </footer>
+  </div>
 </template>
 
 <script setup>

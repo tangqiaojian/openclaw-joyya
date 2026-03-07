@@ -3,27 +3,27 @@
     <h1>上传视频</h1>
     <form @submit.prevent="handleSubmit">
       <div class="form-group">
-        <label for="title">视频标题<=label>
+        <label for="title">视频标题</label>
         <input type="text" id="title" v-model="form.title" required placeholder="请输入视频标题" class="form-input" />
       </div>
       
       <div class="form-group">
-        <label for="description">视频描述<=label>
+        <label for="description">视频描述</label>
         <textarea id="description" v-model="form.description" rows="4" placeholder="请输入视频描述" class="form-input" />
       </div>
       
       <div class="form-group">
-        <label for="cover">封面 URL<=label>
+        <label for="cover">封面 URL</label>
         <input type="url" id="cover" v-model="form.cover" placeholder="https://example.com/cover.jpg" class="form-input" />
       </div>
       
       <div class="form-group">
-        <label for="videoUrl">视频 URL<=label>
+        <label for="videoUrl">视频 URL</label>
         <input type="url" id="videoUrl" v-model="form.videoUrl" required placeholder="https://example.com/video.mp4" class="form-input" />
       </div>
       
       <div class="form-group">
-        <label for="category">分类<=label>
+        <label for="category">分类</label>
         <select id="category" v-model="form.categoryId" class="form-select">
           <option :value="null">选择分类</option>
           <option v-for="cat in categories" :key="cat.id" :value="cat.id">{{ cat.name }}</option>
@@ -31,7 +31,7 @@
       </div>
       
       <div class="form-group">
-        <label for="duration">时长（秒）<=label>
+        <label for="duration">时长（秒）</label>
         <input type="number" id="duration" v-model.number="form.duration" placeholder="视频时长" class="form-input" />
       </div>
       

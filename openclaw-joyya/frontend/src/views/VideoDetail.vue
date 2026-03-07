@@ -1,19 +1,19 @@
 <template>
   <div class="video-detail-container" v-if="video">
     <div class="video-player-section">
-      <video :src="video.videoUrl" controls class="video-player" /u003e
+      <video :src="video.videoUrl" controls class="video-player"></video>
       <div class="video-info-card card">
         <h1 class="video-title">{{ video.title }}</h1>
         <p class="video-description" v-if="video.description">{{ video.description }}</p>
         <div class="video-stats">
-          <span class="stat"@click="incrementView">▶️ {{ formatNumber(video.viewCount) }} 播放</span>
-          <span class="stat"@click="handleLike">👍 {{ formatNumber(video.likeCount) }}</span>
-          <span class="stat"@click="incrementShare">🔗 {{ formatNumber(video.shareCount) }} 分享</span>
-          <span class="stat"@click="handleCollect">⭐ {{ formatNumber(video.coinCount) }} 收藏</span>
+          <span class="stat" @click="incrementView">▶️ {{ formatNumber(video.viewCount) }} 播放</span>
+          <span class="stat" @click="handleLike">👍 {{ formatNumber(video.likeCount) }}</span>
+          <span class="stat" @click="incrementShare">🔗 {{ formatNumber(video.shareCount) }} 分享</span>
+          <span class="stat" @click="handleCollect">⭐ {{ formatNumber(video.coinCount) }} 收藏</span>
         </div>
         <div class="upload-info">
           <div class="user-info">
-            <img :src="video.userAvatar" alt="avatar" class="avatar" /u003e
+            <img :src="video.userAvatar" alt="avatar" class="avatar" />
             <span class="username">{{ video.userNickname || '作者' }}</span>
           </div>
           <span class="category-badge">{{ video.categoryName || '未分类' }}</span>

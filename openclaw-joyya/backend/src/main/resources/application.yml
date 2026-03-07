@@ -1,20 +1,47 @@
+# Spring Boot Application Configuration
+# For production use MySQL - uncomment MySQL config and comment H2 config
+
 spring:
   application:
     name: joyya-backend
   
+  # H2 In-Memory Database (for quick testing)
   datasource:
-    url: jdbc:mysql://localhost:3306/joyya?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
-    username: root
-    password: root
-    driver-class-name: com.mysql.cj.jdbc.Driver
-  
+    url: jdbc:h2:mem:joyya;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: 
+
   jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
     hibernate:
-      ddl-auto: update
+      ddl-auto: none
     show-sql: true
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.MySQL8Dialect
+
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+  sql:
+    init:
+      mode: embedded
+      schema-locations: classpath:schema_h2.sql
+
+# For MySQL production setup, uncomment the following and comment the H2 config above:
+# datasource:
+#   url: jdbc:mysql://localhost:3306/joyya?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+#   username: root
+#   password: root
+#   driver-class-name: com.mysql.cj.jdbc.Driver
+#
+# jpa:
+#   hibernate:
+#     ddl-auto: update
+#   show-sql: true
+#   properties:
+#     hibernate:
+#       dialect: org.hibernate.dialect.MySQL8Dialect
 
 jwt:
   secret: joyya-secret-key-for-jwt-token-generation
@@ -22,3 +49,8 @@ jwt:
 
 server:
   port: 8080
+
+logging:
+  level:
+    com.joyya: DEBUG
+    org.springframework.web: DEBUG

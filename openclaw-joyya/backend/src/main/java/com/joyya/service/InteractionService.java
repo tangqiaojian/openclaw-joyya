@@ -220,8 +220,17 @@ public class InteractionService {
             throw new IllegalArgumentException("用户不存在");
         }
 
-        Pageable pageable = PageRequest.of(page, size, Sort.by(Sort.Direction.DESC, "createdAt"));
-        return collectionRepository.findByUserIdOrderByCreatedAtDesc(userId, pageable);
+        Page<Collection> collections = collectionRepository.findByUserIdOrderByCreatedAtDesc(userId, PageRequest.of(page, size, Sort.by(Sort.Direction.DESC, "createdAt")));
+        
+        // 手动将 Collection 转换为 Video
+        return collections.getContent().stream()
+                .map(collection -> videoRepository.findById(collection.getVideoId()))
+                .filter(Optional::isPresent)
+                .map(Optional::get)
+                .collect(java.util.stream.Collectors.collectingAndThen(
+                        java.util.stream.Collectors.toList(),
+                        list -> new org.springframework.data.domain.PageImpl<>(list, collections.getPageable(), collections.getTotalElements())
+                ));
     }
 
     /**

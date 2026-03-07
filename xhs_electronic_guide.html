@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>电商避坑指南图文笔记</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        .image-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+        .image-card:hover {
+            transform: translateY(-10px);
+        }
+        .image-container {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+        }
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .image-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 100%);
+            padding: 40px 30px 30px;
+            color: white;
+        }
+        .image-overlay h3 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            color: #FF2442;
+        }
+        .image-overlay p {
+            font-size: 16px;
+            line-height: 1.6;
+            opacity: 0.95;
+        }
+        .instructions {
+            background: rgba(255,255,255,0.95);
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+        .instructions h2 {
+            color: #333;
+            font-size: 36px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .step {
+            margin-bottom: 30px;
+            padding-left: 30px;
+            border-left: 4px solid #FF2442;
+        }
+        .step h3 {
+            color: #FF2442;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        .step p {
+            color: #666;
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+        .highlight {
+            background: #FF2442;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+        .tag-cloud {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 12px;
+            text-align: center;
+        }
+        .tag-cloud h4 {
+            color: #333;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+        .tag {
+            background: #FF2442;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+        .download-btn {
+            display: inline-block;
+            background: #FF2442;
+            color: white;
+            padding: 15px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+        .download-btn:hover {
+            background: #e61e3a;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(255,36,66,0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="image-grid">
+            <div class="image-card">
+                <div class="image-container">
+                    <img src="C:/Users/Administrator/.openclaw/media/inbound/758ee2ab-d5ec-40ba-9e60-5a0864c2af8c.png" alt="电商图片 1">
+                    <div class="image-overlay">
+                        <h3>🛒 电商新人必看!</h3>
+                        <p>5 个避坑指南让你少走 3 年弯路</p>
+                    </div>
+                </div>
+            </div>
+            <div class="image-card">
+                <div class="image-container">
+                    <img src="C:/Users/Administrator/.openclaw/media/inbound/3052e38f-9a5c-4c28-a4de-6bdf5a9dac08.png" alt="电商图片 2">
+                    <div class="image-overlay">
+                        <h3>💡 核心经验点</h3>
+                        <p>选品 • 供应链 • 图片 • 流量</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="instructions">
+            <h2>📝 小红书图文笔记发布指南</h2>
+            
+            <div class="step">
+                <h3>步骤 1: 使用 Canva 或创客贴制作图文</h3>
+                <p>上面两张电商图片已经准备好了！你可以使用 <span class="highlight">Canva 可画</span> 或 <span class="highlight">创客贴</span> 来制作小红书图文笔记。</p>
+                <ul>
+                    <li>登录 Canva 或创客贴</li>
+                    <li>搜索"小红书"模板</li>
+                    <li>选择"大字封面"或"图文帖子"模板</li>
+                    <li>上传这两张电商图片</li>
+                    <li>添加标题和正文内容（见下方）</li>
+                </ul>
+            </div>
+            
+            <div class="step">
+                <h3>步骤 2: 准备发布内容</h3>
+                <p><strong>标题：</strong>🛒电商新人必看！5 个避坑指南让你少走 3 年弯路</p>
+                <p><strong>正文：</strong></p>
+                <p>姐妹们！做电商这几年踩过太多坑了😭 今天把血泪经验整理出来，给想入行的小白们！</p>
+                <p>🔥 <strong>核心经验：</strong></p>
+                <ol>
+                    <li>选品是王道 - 看市场数据，用工具分析</li>
+                    <li>供应链要靠谱 - 货比三家，样品检查</li>
+                    <li>图片决定转化 - 主图突出卖点，找专业摄影师</li>
+                    <li>流量要多元化 - 多平台布局，重点做精</li>
+                </ol>
+            </div>
+            
+            <div class="step">
+                <h3>步骤 3: 发布笔记</h3>
+                <p>上传到小红书创作者中心，添加话题标签，点击发布！</p>
+            </div>
+            
+            <div class="tag-cloud">
+                <h4>#️⃣ 推荐话题标签：</h4>
+                <div class="tags">
+                    <span class="tag">#电商</span>
+                    <span class="tag">#电商创业</span>
+                    <span class="tag">#创业经验</span>
+                    <span class="tag">#避坑指南</span>
+                    <span class="tag">#电商运营</span>
+                    <span class="tag">#创业干货</span>
+                </div>
+            </div>
+            
+            <a href="https://www.canva.cn/design/create" target="_blank" class="download-btn">
+                跳转到 Canva 制作 →
+            </a>
+        </div>
+    </div>
+</body>
+</html>

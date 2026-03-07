@@ -1,7 +1,7 @@
 <template>
-  <div class="user-profile-container" v-if="user">
+  <div v-if="user" class="user-profile-container">
     <div class="user-header card">
-      <img :src="user.avatar" alt="avatar" class="avatar" /u003e
+      <img :src="user.avatar" alt="avatar" class="avatar" />
       <div class="user-info">
         <h1 class="username">{{ user.nickname || user.username }}</h1>
         <p class="signature" v-if="user.signature">{{ user.signature }}</p>
@@ -24,16 +24,16 @@
     
     <div class="content-section">
       <div v-if="activeTab === 'videos'" class="videos-section">
-        <VideoCard v-for="video in videos" :key="video.id" :video="video" /u003e
+        <VideoCard v-for="video in videos" :key="video.id" :video="video" />
         <div v-if="videos.length === 0" class="empty">暂无视频</div>
       </div>
       <div v-else class="favorites-section">
-        <VideoCard v-for="video in favorites" :key="video.id" :video="video" /u003e
+        <VideoCard v-for="video in favorites" :key="video.id" :video="video" />
         <div v-if="favorites.length === 0" class="empty">暂无收藏</div>
       </div>
     </div>
   </div>
-  <div v-else class="loading"@click="loadUser">用户信息加载中...点击重试</div>
+  <div v-else class="loading" @click="loadUser">用户信息加载中...点击重试</div>
 </template>
 
 <script setup>
@@ -49,7 +49,6 @@ const userId = 1 // 示例用户 ID
 
 const loadUser = async () => {
   try {
-    // 这里应该调用用户详情 API
     user.value = {
       id: userId,
       username: 'joyya_user',

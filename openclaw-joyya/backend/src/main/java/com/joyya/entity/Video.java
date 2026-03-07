@@ -3,6 +3,8 @@ package com.joyya.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 视频实体类
@@ -53,6 +55,17 @@ public class Video {
      */
     @Column(name = "duration", nullable = false)
     private Integer duration;
+
+    /**
+     * 标签列表（多对多关联）
+     */
+    @ManyToMany
+    @JoinTable(
+        name = "video_tags",
+        joinColumns = @JoinColumn(name = "video_id"),
+        inverseJoinColumns = @JoinColumn(name = "tag_id")
+    )
+    private List<Tag> tags = new ArrayList<>();
 
     /**
      * 分类 ID，关联 categories 表

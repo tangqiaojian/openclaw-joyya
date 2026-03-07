@@ -136,7 +136,7 @@ public class CommentService {
 
         Comment comment = new Comment();
         comment.setVideoId(videoId);
-        comment.setUserId(userId);
+        comment.setUser(userOpt.get());
         comment.setParentId(parentId != null ? parentId : 0L);
         comment.setContent(content);
         comment.setLikeCount(0);
@@ -170,7 +170,7 @@ public class CommentService {
                 .orElseThrow(() -> new IllegalArgumentException("评论不存在"));
 
         // 验证权限：只能修改自己的评论
-        if (!existingComment.getUserId().equals(userId)) {
+        if (!existingComment.getUser().getId().equals(userId)) {
             throw new IllegalArgumentException("无权限修改该评论");
         }
 
@@ -190,7 +190,7 @@ public class CommentService {
                 .orElseThrow(() -> new IllegalArgumentException("评论不存在"));
 
         // 验证权限
-        if (!existingComment.getUserId().equals(userId)) {
+        if (!existingComment.getUser().getId().equals(userId)) {
             throw new IllegalArgumentException("无权限删除该评论");
         }
 

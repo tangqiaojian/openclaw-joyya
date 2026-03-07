@@ -2,17 +2,17 @@
   <div class="comment-card card">
     <div class="comment-header">
       <div class="user-info">
-        <img :src="comment.userAvatar || '/placeholder-avatar.jpg'" alt="avatar" class="avatar" /u003e
+        <img :src="comment.userAvatar || '/placeholder-avatar.jpg'" alt="avatar" class="avatar" />
         <span class="username">{{ comment.userNickname || '匿名用户' }}</span>
       </div>
       <span class="comment-time">{{ formatTime(comment.createdAt) }}</span>
     </div>
     <div class="comment-content">{{ comment.content }}</div>
     <div class="comment-actions">
-      <button class="action-btn"@click="handleLike">
+      <button class="action-btn" @click="handleLike">
         👍 {{ comment.likeCount }}
       </button>
-      <button class="action-btn"@click="$emit('showReplies')">
+      <button class="action-btn" @click="$emit('showReplies')">
         回复 {{ comment.replyCount }}
       </button>
     </div>

@@ -1,0 +1,142 @@
+services:
+  joyya-dev:
+    image: openclaw/openclaw:latest
+    container_name: openclaw-joyya-dev
+    hostname: joyya-dev
+    restart: unless-stopped
+    ports:
+      - "3001:8080"
+    environment:
+      - NODE_NAME=joyya-dev
+      - NODE_PORT=3001
+      - NODE_DESC=Joyya 视频平台开发测试专用
+      - OLLAMA_URL=http://192.168.6.62:11434
+      - OLLAMA_MODEL=qwen3.5:35b
+    volumes:
+      - joyya-dev-data:/data
+      - joyya-dev-cache:/root/.cache
+    depends_on:
+      - ollama
+    networks:
+      - openclaw-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  video-ai:
+    image: openclaw/openclaw:latest
+    container_name: openclaw-video-ai
+    hostname: video-ai
+    restart: unless-stopped
+    ports:
+      - "3002:8080"
+    environment:
+      - NODE_NAME=video-ai
+      - NODE_PORT=3002
+      - NODE_DESC=视频 AI 分析专用，支持 OCR 和内容识别
+      - OLLAMA_URL=http://192.168.6.62:11434
+      - OLLAMA_MODEL=qwen3.5:35b
+    volumes:
+      - video-ai-data:/data
+      - video-ai-cache:/root/.cache
+      - video-ai-ollama:/root/.ollama
+    depends_on:
+      - ollama
+    networks:
+      - openclaw-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  content-moderation:
+    image: openclaw/openclaw:latest
+    container_name: openclaw-content-moderation
+    hostname: content-moderation
+    restart: unless-stopped
+    ports:
+      - "3003:8080"
+    environment:
+      - NODE_NAME=content-moderation
+      - NODE_PORT=3003
+      - NODE_DESC=内容审核和敏感视频检测专用
+      - OLLAMA_URL=http://192.168.6.62:11434
+      - OLLAMA_MODEL=qwen3.5:35b
+    volumes:
+      - content-moderation-data:/data
+      - content-moderation-cache:/root/.cache
+      - content-moderation-ollama:/root/.ollama
+    depends_on:
+      - ollama
+    networks:
+      - openclaw-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  monitor:
+    image: openclaw/openclaw:latest
+    container_name: openclaw-monitor
+    hostname: monitor
+    restart: unless-stopped
+    ports:
+      - "3004:8080"
+    environment:
+      - NODE_NAME=monitor
+      - NODE_PORT=3004
+      - NODE_DESC=系统监控和日志收集专用
+      - OLLAMA_URL=http://192.168.6.62:11434
+      - OLLAMA_MODEL=qwen3.5:35b
+    volumes:
+      - monitor-data:/data
+      - monitor-cache:/root/.cache
+      - monitor-ollama:/root/.ollama
+    depends_on:
+      - ollama
+    networks:
+      - openclaw-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  ollama:
+    image: ollama/ollama:latest
+    container_name: openclaw-ollama
+    hostname: ollama
+    restart: unless-stopped
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama-data:/root/.ollama
+    networks:
+      - openclaw-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:11434/api/tags"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+volumes:
+  joyya-dev-data:
+  joyya-dev-cache:
+  video-ai-data:
+  video-ai-cache:
+  video-ai-ollama:
+  content-moderation-data:
+  content-moderation-cache:
+  content-moderation-ollama:
+  monitor-data:
+  monitor-cache:
+  monitor-ollama:
+  ollama-data:
+
+networks:
+  openclaw-network:
+    driver: bridge
